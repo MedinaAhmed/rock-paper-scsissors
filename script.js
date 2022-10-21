@@ -5,17 +5,17 @@ const yourScoreSpan = document.querySelector('[data-your-score]')
 const SELECTIONS = [
   {
     name: 'rock',
-    emoji: 'rock',
+    choose: 'rock',
     beats: 'scissors'
   },
   {
     name: 'paper',
-    emoji: 'paper',
+    choose: 'paper',
     beats: 'rock'
   },
   {
     name: 'scissors',
-    emoji: 'scissors',
+    choose: 'scissors',
     beats: 'paper'
   }
 ]
@@ -29,7 +29,7 @@ selectionButtons.forEach(selectionButton => {
 })
 
 function makeSelection(selection) {
-  const computerSelection = randomSelection()
+  const computerSelection = computerPlay()
   const yourWinner = isWinner(selection, computerSelection)
   const computerWinner = isWinner(computerSelection, selection)
 
@@ -46,7 +46,7 @@ function incrementScore(scoreSpan) {
 
 function addSelectionResult(selection, winner) {
   const div = document.createElement('div')
-  div.innerText = selection.emoji
+  div.innerText = selection.choose
   div.classList.add('result-selection')
   if (winner) div.classList.add('winner')
   finalColumn.after(div)
@@ -56,7 +56,7 @@ function isWinner(selection, opponentSelection) {
   return selection.beats === opponentSelection.name
 }
 
-function randomSelection() {
+function computerPlay() {
   const randomIndex = Math.floor(Math.random() * SELECTIONS.length)
   return SELECTIONS[randomIndex]
-}ss
+}

@@ -5,8 +5,9 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-	color: #ffaa22;
-
+	color: #333333;
+    background-color:#ffaa22;
+    padding: 20px;
   }
   
   .selections {
